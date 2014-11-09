@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 17:28:38 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/08 22:13:34 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/09 23:48:26 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
 	char	*ret;
-
-	i = 0;
-	j = 0;
+	if (!s)
+		return (0);
 	ret = ft_strnew(len);
-	i = start;
-	while (i < len + start)
+	if (ret)
 	{
-		ret[j] = s[i];
-		i++;
-		j++;
+		ft_memcpy((void *)str, (void *)(s + start), len);
 	}
 	return (ret);
 }
