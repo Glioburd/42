@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 20:48:26 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/08 20:51:23 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/08 22:30:50 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_strdel(char **as)
 {
 	if (as && *as)
 	{
-		free(*as);
-		as = NULL;
+		ft_memdel((void **)as);
 	}
 }

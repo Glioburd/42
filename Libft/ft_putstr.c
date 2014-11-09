@@ -6,13 +6,13 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 12:09:24 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/05 12:10:59 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/09 14:48:37 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char const *str)
 {
 	int	i;
 

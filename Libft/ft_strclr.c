@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 20:56:25 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/06 21:04:24 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/09 15:45:08 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_strclr(char *s)
 {
-	ft_bzero((void *)s, ft_strlen(s));
+	if (s)
+		ft_bzero((void *)s, ft_strlen(s));
 }
