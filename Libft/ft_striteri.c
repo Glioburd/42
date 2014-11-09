@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 21:30:51 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/08 22:03:55 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/09 20:56:59 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t	i;
 	size_t	len;
-
+	
+	if (!(f) || !(s))
+			return ;
 	i = 0;
 	len = ft_strlen(s);
 	while (i < len)

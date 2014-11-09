@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 12:17:28 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/08 22:10:39 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/09 20:52:33 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	ft_striter(char *s, void (*f)(char *))
 {
 	size_t	i;
-	size_t	len;
-
+	
+	if (!(f) || !(s))
+	{
+		return ;
+	}
 	i = 0;
-	len = ft_strlen(s);
-	while (i < len)
+	while (s[i] != '\0')
 	{
 		(*f)(&s[i]);
 		i++;

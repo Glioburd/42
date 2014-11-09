@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 17:54:52 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/06 17:19:05 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/09 21:29:19 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t size)
 	d = dst;
 	s = src;
 	n = size;
-	while (*d != '\0' && n != 0)
+	while (n-- != '\0' && *d != '\0')
 		d++;  
 	dst_lenght = d - dst;
 	n = size - dst_lenght; 
