@@ -6,19 +6,18 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 13:30:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/08 20:01:10 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/10 16:10:55 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int count_digit(int n);
 /*
 ** On compte le nombre de chiffres que contient n
 ** pour creer un buffer adapte dans itoa
 */
-int		count_digit(int n)
+long int		count_digit(long int n)
 {
 	int	count;
 
@@ -36,10 +35,10 @@ int		count_digit(int n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long int n)
 {
-	char	*buf;
-	int		j;
+	char		*buf;
+	long int	j;
 
 	buf = ft_strnew(count_digit(n));
 	j = count_digit(n) - 1;
