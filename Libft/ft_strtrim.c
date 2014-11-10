@@ -6,13 +6,11 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 21:32:37 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/10 15:06:31 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/10 20:07:49 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isblanc(int c);
 
 static int	ft_isblanc(int c)
 {

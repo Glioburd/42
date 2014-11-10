@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:23:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/09 18:25:51 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/10 18:50:30 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);// ok
 int		ft_strncmp(const char *s1, const char *s2, size_t n);// ok
 int		ft_atoi(const char *str);
-char	*ft_strstr(const char *str, const char *to_find);
-char	*ft_strnstr(const char *str, const char *to_find, size_t len);//ok
+char	*ft_strstr(const char *s1, const char *s2);
+char	*ft_strnstr(const char *str, const char *tofind, size_t n);//ok
 size_t	ft_strlcat(char *dst, char *src, size_t size);//ok
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
