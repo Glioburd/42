@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 17:28:38 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/10 14:40:45 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:30:43 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;
-	
+
 	if (!s)
 	{
 		return (0);

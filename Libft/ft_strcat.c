@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:40:49 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/07 21:28:43 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:14:31 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char *ft_strcat(char *dest, const char *src)
 {
-	char *ps1;
-	size_t i;
+	char	*ps1;
+	size_t	i;
 
 	ps1 = dest;
 	i = 0;

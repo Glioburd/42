@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 18:54:37 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/10 15:36:07 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:22:14 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 int		ft_strequ(char const *s1, char const *s2)
 {
 	if ((!s1 && s2) || (s1 && !s2))
-			return (0);
+	{
+		return (0);
+	}
 	if ((ft_strcmp(s1, s2)) == 0)
+	{
 		return (1);
+	}
 	return (0);
 }

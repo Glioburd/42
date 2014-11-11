@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 13:30:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/11 14:40:39 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:12:18 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** On compte le nombre de chiffres que contient n
 ** pour creer un buffer adapte dans itoa
 */
-static int		count_digit(int n)
+static int	count_digit(int n)
 {
-	int	count;
+	int		count;
 
 	count = 0;
 	if (n <= 0)
@@ -33,17 +33,14 @@ static int		count_digit(int n)
 	}
 	return (count);
 }
-/*
-** J'ai extremement honte de l'exception en dur pour le cas -2147483648.
-** Pardon.
-*/
-char	*ft_itoa(int n)
+
+char		*ft_itoa(int n)
 {
 	char	*buf;
 	int		j;
 
 	if (n == -2147483648)
-		return("-2147483648");
+		return ("-2147483648");
 	buf = ft_strnew(count_digit(n));
 	j = count_digit(n) - 1;
 	if (buf)

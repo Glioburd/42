@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 17:44:18 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/10 15:22:35 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:20:13 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t	i;
 	char	*d;
 	char	*s;
+
 	if (!dst || !src || !n)
 		return (dst);
 	i = 0;

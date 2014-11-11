@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 19:42:27 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/09 20:04:03 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:15:29 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
-	unsigned char *p1;
-	unsigned char *p2;
+	int				i;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
 	p1 = (unsigned char*)s1;
 	p2 = (unsigned char*)s2;
-
 	if (!p1 && !p2)
 		return (0);
 	i = 0;

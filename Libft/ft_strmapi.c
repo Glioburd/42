@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 16:45:29 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/09 21:21:12 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 18:26:20 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char 	*ret;
+	char	*ret;
 	size_t	i;
 
 	i = 0;
