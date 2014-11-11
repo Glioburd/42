@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:23:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/11 13:23:38 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 17:54:13 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	ft_bzero(void *str, size_t n);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_memset(void *str, int c, size_t n);//ok
-void	*ft_memmove(void *dest, const void *src, size_t n);//ok
-void	*ft_memcpy(void *dest, const void *src, size_t n);//ok
+void	*ft_memmove(void *dst, const void *src, size_t n);//ok
+void	*ft_memcpy(void *dst, const void *src, size_t n);//ok
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);//ok
 void	*ft_memalloc(size_t size);//ok
 void	ft_putnbr(int n);//ok
@@ -66,7 +66,7 @@ void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-void	*ft_memchr(const void *str, int c, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_isspace(char c);
 #endif
