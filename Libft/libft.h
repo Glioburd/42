@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:23:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/10 18:50:30 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/11 13:23:38 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_tolower(int c);
 void	*ft_memset(void *str, int c, size_t n);//ok
 void	*ft_memmove(void *dest, const void *src, size_t n);//ok
 void	*ft_memcpy(void *dest, const void *src, size_t n);//ok
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);//ok
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);//ok
 void	*ft_memalloc(size_t size);//ok
 void	ft_putnbr(int n);//ok
 void	ft_putnbr_fd(int n, int fd);
