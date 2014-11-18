@@ -32,20 +32,20 @@ char	**ft_search_end(char **innerBuffer, char **line)
 	{
 		if ((tmp = ft_strchr((const char *)innerBuffer, '\n')) != NULL)
 		{
-			len = (tmp - innerBuffer);
+			len = (tmp - i*nnerBuffer);
 			tmp[0] = '\0';
-			ft_strcpy(line, innerBuffer);
-			if (len == ft_strlen(innerBuffer))
+			ft_strcpy(line, *innerBuffer);
+			if (len == ft_strlen(*innerBuffer))
 			{
-				free(innerBuffer);
-				innerBuffer = NULL;
+				free(*innerBuffer);
+				*innerBuffer = NULL;
 			}
 			else
 			{
 				newBuff = (char *)malloc(sizeof(ft_strlen(tmp + 1)));
 				ft_strcpy_(newBuff, tmp + 1);
-				free (innerBuffer);
-				innerBuffer = newBuff;
+				free (*innerBuffer);
+				*innerBuffer = newBuff;
 			}
 		}
 		return (len);
