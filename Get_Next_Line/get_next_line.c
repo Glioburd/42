@@ -4,7 +4,7 @@
 /*
 ** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne le nombre de caractères lus
 */
-int ft_read_fd(char **innerBuffer, int fd)
+int *ft_read_fd(char **innerBuffer, int fd)
 {
 	char		*newBuff;
 	char		*tmpBuff;
@@ -22,13 +22,13 @@ int ft_read_fd(char **innerBuffer, int fd)
 		*innerBuffer = newBuff;
 	}
 	
-	return ret;
+	return (ret);
 }
 
-int ft_search_end(char **innerBuffer, char **line, char delimiter)
+int *ft_search_end(char **innerBuffer, char **line, char delimiter)
 {
 	char		*tmp;
-	size_t		len;
+	int			len;
 	char		*newBuff;
 	if (*innerBuffer != NULL)
 	{	
@@ -37,7 +37,7 @@ int ft_search_end(char **innerBuffer, char **line, char delimiter)
 			len = (tmp - *innerBuffer);
 			tmp[0] = '\0';
 			ft_strcpy(*line, *innerBuffer);
-			if (len == ft_strlen(*innerBuffer))
+			if ((size_t)len == ft_strlen(*innerBuffer))
 			{
 				free(*innerBuffer);
 				*innerBuffer = NULL;
@@ -49,12 +49,10 @@ int ft_search_end(char **innerBuffer, char **line, char delimiter)
 				free (*innerBuffer);
 				*innerBuffer = newBuff;
 			}
-			return len;
-		} else
-			return -1;
+			return (len);
+		} 
 	}
-	else
-		return -1;
+	return (-1);
 }
 
 int			get_next_line(int const fd, char **line)
