@@ -1,7 +1,10 @@
 #include "libft.h"
 #include "get_next_line.h"
 
-char 	*ft_new_search(char **innerBuffer, char **line, int fd)
+/*
+** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne le nombre de caractères lus
+*/
+int ft_read_fd(char **innerBuffer, int fd)
 {
 	char		*newBuff;
 	char		*tmpBuff;
@@ -9,7 +12,7 @@ char 	*ft_new_search(char **innerBuffer, char **line, int fd)
 	int			ret;
 
 	tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
-	ret = read(fd, innerBuffer, BUFF_SIZE);
+	ret = read(fd, *tmpBuff, BUFF_SIZE);
 	if (*innerBuffer == NULL)
 		*innerBuffer = tmpBuff;
 	else
@@ -19,8 +22,8 @@ char 	*ft_new_search(char **innerBuffer, char **line, int fd)
 		free(*innerBuffer);
 		*innerBuffer = newBuff;
 	}
-	if (*tmp = ft_strchr((const char*)innerBuffer, '\n') != NULL)
-		return (*innerBuffer);
+	
+	return ret;
 }
 
 char	**ft_search_end(char **innerBuffer, char **line)
@@ -32,7 +35,7 @@ char	**ft_search_end(char **innerBuffer, char **line)
 	{
 		if ((tmp = ft_strchr((const char *)innerBuffer, '\n')) != NULL)
 		{
-			len = (tmp - i*nnerBuffer);
+			len = (tmp - *innerBuffer);
 			tmp[0] = '\0';
 			ft_strcpy(line, *innerBuffer);
 			if (len == ft_strlen(*innerBuffer))
