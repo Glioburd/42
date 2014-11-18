@@ -6,7 +6,7 @@ char 	*ft_new_search(char **innerBuffer, char **line, int fd)
 	char		*newBuff;
 	char		*tmpBuff;
 	char		*tmp;
-	int			*ret;
+	int			ret;
 
 	tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
 	ret = read(fd, innerBuffer, BUFF_SIZE);
@@ -19,18 +19,18 @@ char 	*ft_new_search(char **innerBuffer, char **line, int fd)
 		free(*innerBuffer);
 		*innerBuffer = newBuff;
 	}
-	if (tmp = ft_strchr(*innerBuffer, '\n') != NULL)
-		return (**innerBuffer);
+	if (*tmp = ft_strchr((const char*)innerBuffer, '\n') != NULL)
+		return (*innerBuffer);
 }
 
-IIchar	**ft_search_end(char **innerBuffer, char **line)
+char	**ft_search_end(char **innerBuffer, char **line)
 {
 	char		*tmp;
 	char		*len;
 	char		*newBuff;
 	if (innerBuffer == NULL)
 	{
-		if ((tmp = ft_strchr(innerBuffer, '\n')) != NULL)
+		if ((tmp = ft_strchr((const char *)innerBuffer, '\n')) != NULL)
 		{
 			len = (tmp - innerBuffer);
 			tmp[0] = '\0';
