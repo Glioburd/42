@@ -1,68 +1,65 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/12 14:24:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/14 17:20:44 by gsauvair         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "get_next_line.h"
 #include "libft.h"
+#include "get_next_line.h"
 
-char	*ft_realloc(char *str, size_t n)
+char 	*ft_new_search(char **innerBuffer, char **line, int fd)
 {
-	int		i;
-	char	*new;
+	char		*newBuff;
+	char		*tmpBuff;
+	char		*tmp;
+	int			*ret;
 
-	new = ft_strnew(str, n);
-	while (stri[i])
+	tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
+	ret = read(fd, innerBuffer, BUFF_SIZE);
+	if (*innerBuffer == NULL)
+		*innerBuffer = tmpBuff;
+	else
 	{
-		new[i] = str[i];
-		i++;
+		newBuff = malloc(ft_strlen(*innerBuffer) + ft_strlen(tmpBuff));
+		ft_strcpy(newBuff + ft_strlen(*innerBuffer), tmpBuff);
+		free(*innerBuffer);
+		*innerBuffer = newBuff;
 	}
-	free (str);
-	return (new);
+	if (tmp = ft_strchr(*innerBuffer, '\n') != NULL)
+		return (**innerBuffer);
 }
 
-
-
-int		get_next_line(int const fd, char **line)
+IIchar	**ft_search_end(char **innerBuffer, char **line)
 {
-	static char	buffer[BUFF_SIZE + 1];
-	int			ret;
-
-	if (BUFF_SIZE <= 0 || !line || (fd < 2 && fd != 0))
-		return (-1);
-	*line = ft_memalloc(sizeof(*line * (BUFF_SIZE + 1)));
-	while (ret = read(fd, buffer, BUFF_SIZE))
-		buferf[ret] = '\0';
-
-}
-/*{
-	static char	buffer[BUFF_SIZE + 1];
-	int			ret;	
-	if (buffer < 0 || !line || fd != 0)
-		return (-1);
-	ret = read(fd, buff, BUFF_SIZE);
-	*line = (char*)ft_memalloc(sizeof (*line) * BUFF_SIZE + 1);
-	while (ret)
+	char		*tmp;
+	char		*len;
+	char		*newBuff;
+	if (innerBuffer == NULL)
 	{
-		if (ret == -1)
-			return (-1);
-		buffer[ret] = '\0';
-		while (buffer != '\n')
+		if ((tmp = ft_strchr(innerBuffer, '\n')) != NULL)
 		{
-			buff++;
+			len = (tmp - innerBuffer);
+			tmp[0] = '\0';
+			ft_strcpy(line, innerBuffer);
+			if (len == ft_strlen(innerBuffer))
+			{
+				free(innerBuffer);
+				innerBuffer = NULL;
+			}
+			else
+			{
+				newBuff = (char *)malloc(sizeof(ft_strlen(tmp + 1)));
+				ft_strcpy_(newBuff, tmp + 1);
+				free (innerBuffer);
+				innerBuffer = newBuff;
+			}
 		}
-		buff = '\0';
+		return (len);
+}
+
+int			get_next_line(int const fd, char **line)
+{
+	static char	*innerBuffer = NULL;
+
+	if (ft_search_end(innerBuffer, *line) != NULL)
+	{
+		return (1);
 	}
+	if (ft_new_search(innerBuffer, line, fd) != NULL)
+		return (1);
 	return (0);
-}*/
-
-
-strjoin
-strnew strcpy
+}
