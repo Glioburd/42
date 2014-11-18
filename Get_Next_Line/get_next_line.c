@@ -8,11 +8,10 @@ int ft_read_fd(char **innerBuffer, int fd)
 {
 	char		*newBuff;
 	char		*tmpBuff;
-	char		*tmp;
 	int			ret;
 
 	tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
-	ret = read(fd, *tmpBuff, BUFF_SIZE);
+	ret = read(fd, tmpBuff, BUFF_SIZE);
 	if (*innerBuffer == NULL)
 		*innerBuffer = tmpBuff;
 	else
@@ -26,18 +25,18 @@ int ft_read_fd(char **innerBuffer, int fd)
 	return ret;
 }
 
-char	**ft_search_end(char **innerBuffer, char **line)
+int ft_search_end(char **innerBuffer, char **line, char delimiter)
 {
 	char		*tmp;
-	char		*len;
+	size_t		len;
 	char		*newBuff;
-	if (innerBuffer == NULL)
-	{
-		if ((tmp = ft_strchr((const char *)innerBuffer, '\n')) != NULL)
+	if (*innerBuffer != NULL)
+	{	
+		if ((tmp = ft_strchr(*innerBuffer, delimiter)) != NULL)
 		{
 			len = (tmp - *innerBuffer);
 			tmp[0] = '\0';
-			ft_strcpy(line, *innerBuffer);
+			ft_strcpy(*line, *innerBuffer);
 			if (len == ft_strlen(*innerBuffer))
 			{
 				free(*innerBuffer);
@@ -50,19 +49,23 @@ char	**ft_search_end(char **innerBuffer, char **line)
 				free (*innerBuffer);
 				*innerBuffer = newBuff;
 			}
-		}
-		return (len);
+			return len;
+		} else
+			return -1;
+	}
+	else
+		return -1;
 }
 
 int			get_next_line(int const fd, char **line)
 {
-	static char	*innerBuffer = NULL;
+	static char	**innerBuffer = NULL;
 
-	if (ft_search_end(innerBuffer, *line) != NULL)
+	if (ft_search_end(innerBuffer, line, '\n') != NULL)
 	{
 		return (1);
 	}
-	if (ft_new_search(innerBuffer, line, fd) != NULL)
+	if (ft_read_fd(innerBuffer, fd) != NULL)
 		return (1);
 	return (0);
 }
