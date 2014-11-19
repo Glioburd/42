@@ -17,6 +17,7 @@
 ** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne
 ** le nombre de caractères lus.
 */
+
 int		ft_read_fd(char **innerBuffer, int fd)
 {
 	char		*newBuff;
@@ -37,6 +38,10 @@ int		ft_read_fd(char **innerBuffer, int fd)
 	}
 	return (ret);
 }
+
+/*
+** Recherche la fin d'une ligne, delimiter étant '\n' ou EOF
+*/
 
 int		ft_search_end(char **innerBuffer, char **line, char delimiter)
 {
@@ -85,7 +90,7 @@ int get_next_line(int const fd, char **line)
 		}
 		else
 		{
-			read = ft_read_fd(&innerBuffer, fd)
+			read = ft_read_fd(&innerBuffer, fd);
 			if (read)
 		}
 	}
