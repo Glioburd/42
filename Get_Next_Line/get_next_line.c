@@ -20,8 +20,8 @@ int *ft_read_fd(char **innerBuffer, int fd)
 		ft_strcpy(newBuff + ft_strlen(*innerBuffer), tmpBuff);
 		free(*innerBuffer);
 		*innerBuffer = newBuff;
+		ft_strcpy(newBuff,*innerBuffer);
 	}
-	
 	return (ret);
 }
 
