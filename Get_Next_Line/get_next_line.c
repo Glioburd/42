@@ -33,7 +33,7 @@ int		ft_read_fd(char **innerBuffer, int fd)
 		ft_strcpy(newBuff + ft_strlen(*innerBuffer), tmpBuff);
 		free(*innerBuffer);
 		*innerBuffer = newBuff;
-		ft_strcpy(newBuff,*innerBuffer);
+		ft_strcpy(newBuff, *innerBuffer);
 	}
 	return (ret);
 }
@@ -85,7 +85,8 @@ int get_next_line(int const fd, char **line)
 		}
 		else
 		{
-			return (-1);
+			read = ft_read_fd(**innerBuffer, fd)
+			if (read);
 		}
 	}
 	return()
