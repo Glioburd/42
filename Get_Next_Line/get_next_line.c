@@ -85,8 +85,8 @@ int get_next_line(int const fd, char **line)
 		}
 		else
 		{
-			read = ft_read_fd(**innerBuffer, fd)
-			if (read);
+			read = ft_read_fd(&innerBuffer, fd)
+			if (read)
 		}
 	}
 	return()
