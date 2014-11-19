@@ -31,9 +31,9 @@ int		ft_read_fd(char **innerBuffer, int fd)
 	{
 		newBuff = malloc(ft_strlen(*innerBuffer) + ft_strlen(tmpBuff));
 		ft_strcpy(newBuff + ft_strlen(*innerBuffer), tmpBuff);
+		ft_strcpy(newBuff, *innerBuffer);
 		free(*innerBuffer);
 		*innerBuffer = newBuff;
-		ft_strcpy(newBuff, *innerBuffer);
 	}
 	return (ret);
 }
@@ -70,7 +70,7 @@ int		ft_search_end(char **innerBuffer, char **line, char delimiter)
 
 int get_next_line(int const fd, char **line)
 {
-	static char	*innerBuffer[BUFF_SIZE];
+	static char	*innerBuffer;
 	int			ret;
 	int			read;
 
