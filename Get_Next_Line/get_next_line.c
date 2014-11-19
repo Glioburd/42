@@ -14,7 +14,8 @@
 #include "get_next_line.h"
 
 /*
-** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne le nombre de caractères lus
+** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne
+** le nombre de caractères lus.
 */
 int		ft_read_fd(char **innerBuffer, int fd)
 {
@@ -67,15 +68,44 @@ int		ft_search_end(char **innerBuffer, char **line, char delimiter)
 	return (-1);
 }
 
-int			get_next_line(int const fd, char **line)
+int get_next_line(int const fd, char **line)
 {
-	static char	**innerBuffer = NULL;
+	static char	*innerBuffer[BUFF_SIZE];
+	int			ret;
+	int			read;
 
-	if (ft_search_end(innerBuffer, line, '\n') != NULL)
+	if (BUFF_SIZE <= 0 || !line || (fd < 2 && fd != 0))
+		return (-1);
+	if(innerBuffer != NULL) 
 	{
-		return (1);
+		ret = ft_search_end(&innerBuffer, line, '\n');
+		if (ret != -1) 
+		{
+			return (1);
+		}
+		else
+		{
+			return (-1);
+		}
 	}
-	if (ft_read_fd(innerBuffer, fd) != NULL)
-		return (1);
-	return (0);
+	return()
 }
+/*int get_next_line(int const fd, char **line)
+{
+	static char*	innerBuffer = NULL;
+	int				ret;
+
+	if(innerBuffer != NULL) 
+	{
+		ret = ft_search_end(&innerBuffer, line, '\n');
+		if (ret != -1) {
+			//trouvé!
+			return 1;
+		} 
+	}
+
+//si o nest la 'est que l'on a rien trouvé, ou l'on a rien lit
+
+//tant que on a rien trouvé, lire
+}
+*/
