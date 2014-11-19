@@ -4,7 +4,7 @@
 /*
 ** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne le nombre de caractères lus
 */
-int *ft_read_fd(char **innerBuffer, int fd)
+int	ft_read_fd(char **innerBuffer, int fd)
 {
 	char		*newBuff;
 	char		*tmpBuff;
@@ -45,7 +45,7 @@ int *ft_search_end(char **innerBuffer, char **line, char delimiter)
 			else
 			{
 				newBuff = (char *)malloc(sizeof(ft_strlen(tmp + 1)));
-				ft_strcpy_(newBuff, tmp + 1);
+				ft_strcpy(newBuff, tmp + 1);
 				free (*innerBuffer);
 				*innerBuffer = newBuff;
 			}
