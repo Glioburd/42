@@ -17,143 +17,65 @@
 ** le nombre de caractères lus.
 */
 
-int		ft_read_fd(char **innerBuffer, int fd)
+static int	ft_read_fd(char **str, int fd)
 {
-	char		*newBuff;
-	char		*tmpBuff;
-	int			ret;
+	int		ret;
+	char	buff[BUFF_SIZE + 1];
+	char	*ptr;
 
-	tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
-	ret = read(fd, tmpBuff, BUFF_SIZE);
-	if (*innerBuffer == NULL)
-		*innerBuffer = tmpBuff;
-	else
-	{
-		newBuff = malloc(ft_strlen(*innerBuffer) + ft_strlen(tmpBuff));
-		ft_strcpy(newBuff + ft_strlen(*innerBuffer), tmpBuff);
-		ft_strcpy(newBuff, *innerBuffer);
-		free(*innerBuffer);
-		*innerBuffer = newBuff;
-	}
+	ret = read(fd, buff, BUFF_SIZE);
+	if (ret == -1)
+		return (-1);
+	buff[ret] = 0;
+	ptr = *str;
+	*str = ft_strjoin(*str, buff);
+	if (*ptr != 0)
+		free(ptr);
 	return (ret);
 }
 
-/*
-** Recherche la fin d'une ligne, delimiter étant '\n' ou EOF
-*/
-
-int		ft_search_end(char **innerBuffer, char **line, char delimiter)
+static int	ft_fill(char **line, char **str, char *ptr)
 {
-	char		*tmp;
-	int			len;
-	char		*newBuff;
-	if (*innerBuffer != NULL)
-	{	
-		if ((tmp = ft_strchr(*innerBuffer, delimiter)) != NULL)
-		{
-			len = (tmp - *innerBuffer);
-			tmp[0] = '\0';
-			ft_strcpy(*line, *innerBuffer);
-			if ((size_t)len == ft_strlen(*innerBuffer))
-			{
-				free(*innerBuffer);
-				*innerBuffer = NULL;
-			}
-			else
-			{
-				newBuff = (char *)malloc(sizeof(ft_strlen(tmp + 1)));
-				ft_strcpy(newBuff, tmp + 1);
-				free (*innerBuffer);
-				*innerBuffer = newBuff;
-			}
-			return (len);
-		} 
-	}
-	return (-1);
+	char	*tmp;
+	int		ret;
+
+	ret = 0;
+	if (*ptr == '\n')
+		ret = 1;
+	*ptr = 0;
+	*line = ft_strjoin("", *str);
+	tmp = *str;
+	*str = ft_strjoin(ptr + 1, "");
+	free(tmp);
+	return (ret);
 }
 
-int get_next_line(int const fd, char **line)
+int			get_next_line(int const fd, char **line)
 {
-	static char	*innerBuffer;
+	static char *str;
+	char		*ptr;
+	int			size;
 	int			ret;
-	int			read;
 
 	if (BUFF_SIZE <= 0 || !line || (fd < 2 && fd != 0))
 		return (-1);
-	if(innerBuffer != NULL) 
+	if (str == 0)
+		str = "";
+	size = BUFF_SIZE;
+	while (1)
 	{
-		ret = ft_search_end(&innerBuffer, line, '\n');
-		if (ret != -1) 
+		ptr = str;
+		while (*ptr || size < BUFF_SIZE)
 		{
-			return (1);
-		}
-		else
-		{
-			ret = ft_search_end(&innerBuffer, line, EOF);
-			if (ret != -1) 
+			if (*ptr == '\n' || *ptr == -1 || *ptr == 0)
 			{
-			return (1);
+				ret = ft_fill(line, &str, ptr);
+				return (ret);
 			}
+			ptr++;
 		}
+		size = ft_read_fd(&str, fd);
+		if (size == -1)
+			return (-1);
 	}
-			
-	do {
-		read = ft_read_fd(&innerBuffer, fd);
-		ret = ft_search_end(&innerBuffer, line, '\n');
-		if (ret != -1) 
-		{
-			return (1);
-		}
-		else
-		{
-			ret = ft_search_end(&innerBuffer, line, EOF);
-			if (ret != -1) 
-			{
-			return (1);
-			}
-		}	
-	} while (read == BUFF_SIZE);		
 }
-/*int get_next_line(int const fd, char **line)
-{
-	static char	*innerBuffer;
-	int			ret;
-	int			read;
-
-	if (BUFF_SIZE <= 0 || !line || (fd < 2 && fd != 0))
-		return (-1);
-	if(innerBuffer != NULL) 
-	{
-		ret = ft_search_end(&innerBuffer, line, '\n');
-		if (ret != -1) 
-		{
-			return (1);
-		}
-		else
-		{
-			if ((read = ft_read_fd(&innerBuffer, fd)))
-				return (1);
-		}
-	}
-	return(0);
-}
-*/
-/*int get_next_line(int const fd, char **line)
-{
-	static char*	innerBuffer = NULL;
-	int				ret;
-
-	if(innerBuffer != NULL) 
-	{
-		ret = ft_search_end(&innerBuffer, line, '\n');
-		if (ret != -1) {
-			//trouvé!
-			return 1;
-		} 
-	}
-
-//si o nest la 'est que l'on a rien trouvé, ou l'on a rien lit
-
-//tant que on a rien trouvé, lire
-}
-*/
