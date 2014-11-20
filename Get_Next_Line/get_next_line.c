@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "get_next_line.h"
 
 /*
@@ -90,12 +89,55 @@ int get_next_line(int const fd, char **line)
 		}
 		else
 		{
-			read = ft_read_fd(&innerBuffer, fd);
-			if (read)
+			ret = ft_search_end(&innerBuffer, line, EOF);
+			if (ret != -1) 
+			{
+			return (1);
+			}
 		}
 	}
-	return()
+			
+	do {
+		read = ft_read_fd(&innerBuffer, fd);
+		ret = ft_search_end(&innerBuffer, line, '\n');
+		if (ret != -1) 
+		{
+			return (1);
+		}
+		else
+		{
+			ret = ft_search_end(&innerBuffer, line, EOF);
+			if (ret != -1) 
+			{
+			return (1);
+			}
+		}	
+	} while (read == BUFF_SIZE);		
 }
+/*int get_next_line(int const fd, char **line)
+{
+	static char	*innerBuffer;
+	int			ret;
+	int			read;
+
+	if (BUFF_SIZE <= 0 || !line || (fd < 2 && fd != 0))
+		return (-1);
+	if(innerBuffer != NULL) 
+	{
+		ret = ft_search_end(&innerBuffer, line, '\n');
+		if (ret != -1) 
+		{
+			return (1);
+		}
+		else
+		{
+			if ((read = ft_read_fd(&innerBuffer, fd)))
+				return (1);
+		}
+	}
+	return(0);
+}
+*/
 /*int get_next_line(int const fd, char **line)
 {
 	static char*	innerBuffer = NULL;
