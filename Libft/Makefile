@@ -6,7 +6,7 @@
 #    By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/19 15:05:21 by gsauvair          #+#    #+#              #
-#    Updated: 2014/11/19 15:05:25 by gsauvair         ###   ########.fr        #
+#    Updated: 2014/11/21 17:18:33 by gsauvair         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC += ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c
 SRC += ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c
 SRC += ft_strnew.c ft_strnstr.c ft_strrchr.c ft_toupper.c 
 SRC += ft_strstr.c ft_strsub.c ft_strtrim.c ft_tolower.c
+SRC += ft_strsplit.c
 
 
 DEL = rm -f
