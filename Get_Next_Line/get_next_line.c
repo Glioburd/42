@@ -20,15 +20,18 @@
 static int	ft_read_fd(char **str, int fd)
 {
 	int		ret;
-	char	buff[BUFF_SIZE + 1];
+	char	*tmpBuff;//[BUFF_SIZE + 1];
 	char	*ptr;
 
-	ret = read(fd, buff, BUFF_SIZE);
+	//tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
+	//tmpBuff = ft_memalloc(BUFF_SIZE + 1);
+	tmpBuff = ft_strnew(BUFF_SIZE + 1);
+	ret = read(fd, tmpBuff, BUFF_SIZE);
 	if (ret == -1)
 		return (-1);
-	buff[ret] = 0;
+	tmpBuff[ret] = 0;
 	ptr = *str;
-	*str = ft_strjoin(*str, buff);
+	*str = ft_strjoin(*str, tmpBuff);
 	if (*ptr != 0)
 		free(ptr);
 	return (ret);
