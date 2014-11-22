@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/20 20:15:54 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/20 20:25:29 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/22 14:38:42 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_strsplit(const char *s, char c)
 	i = 0;
 	j = 0;
 	if (!s || !c)
-		return (-1);
+		return (NULL);
 	ret = ft_memalloc(ft_strlen(s) + 1);
 	while (s[i])
 	{
