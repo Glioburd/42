@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:23:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/11 18:35:51 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/22 14:33:46 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_isspace(char c);
+char	**ft_strsplit(char const *s, char c);
 #endif
