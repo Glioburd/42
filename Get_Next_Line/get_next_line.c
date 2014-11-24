@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/19 12:07:50 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/19 12:07:53 by gsauvair         ###   ########.fr       */
+/*   Created: 2014/11/24 21:22:46 by gsauvair          #+#    #+#             */
+/*   Updated: 2014/11/24 21:22:47 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 /*
 ** Lit BUFF_SIZE chars de FD dans innerbuffer, et retourne
@@ -21,17 +22,13 @@ static int	ft_read_fd(char **str, int fd)
 {
 	int		ret;
 	char	*tmpBuff;
-	char	*ptr;
 
 	tmpBuff = ft_strnew(BUFF_SIZE + 1);
 	ret = read(fd, tmpBuff, BUFF_SIZE);
 	if (ret == -1)
 		return (-1);
 	tmpBuff[ret] = 0;
-	ptr = *str;
 	*str = ft_strjoin(*str, tmpBuff);
-	if (*ptr != 0)
-		ft_strdel(&ptr);
 	ft_strdel(&tmpBuff);
 	return (ret);
 }
@@ -60,7 +57,7 @@ int			get_next_line(int const fd, char **line)
 	int			size;
 	int			ret;
 
-	if (BUFF_SIZE <= 0 || !line || (fd < 2 && fd != 0))
+	if (BUFF_SIZE <= 0 || !line || fd < 0)
 		return (-1);
 	if (str == 0)
 		str = "";
@@ -81,4 +78,5 @@ int			get_next_line(int const fd, char **line)
 		if (size == -1)
 			return (-1);
 	}
+	return (0);
 }
