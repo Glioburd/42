@@ -23,8 +23,6 @@ static int	ft_read_fd(char **str, int fd)
 	char	*tmpBuff;//[BUFF_SIZE + 1];
 	char	*ptr;
 
-	//tmpBuff = (char *)malloc(sizeof(BUFF_SIZE + 1));
-	//tmpBuff = ft_memalloc(BUFF_SIZE + 1);
 	tmpBuff = ft_strnew(BUFF_SIZE + 1);
 	ret = read(fd, tmpBuff, BUFF_SIZE);
 	if (ret == -1)
@@ -34,8 +32,13 @@ static int	ft_read_fd(char **str, int fd)
 	*str = ft_strjoin(*str, tmpBuff);
 	if (*ptr != 0)
 		free(ptr);
+	free (tmpBuff);
 	return (ret);
 }
+
+/*
+**  
+*/
 
 static int	ft_fill(char **line, char **str, char *ptr)
 {
