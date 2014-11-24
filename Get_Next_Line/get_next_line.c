@@ -20,7 +20,7 @@
 static int	ft_read_fd(char **str, int fd)
 {
 	int		ret;
-	char	*tmpBuff;//[BUFF_SIZE + 1];
+	char	*tmpBuff;
 	char	*ptr;
 
 	tmpBuff = ft_strnew(BUFF_SIZE + 1);
@@ -31,19 +31,17 @@ static int	ft_read_fd(char **str, int fd)
 	ptr = *str;
 	*str = ft_strjoin(*str, tmpBuff);
 	if (*ptr != 0)
-		free(ptr);
-	//free (tmpBuff);
+		ft_strdel(&ptr);
 	ft_strdel(&tmpBuff);
 	return (ret);
 }
 
 /*
-**  
+** 
 */
 
 static int	ft_fill(char **line, char **str, char *ptr)
 {
-	char	*tmp;
 	int		ret;
 
 	ret = 0;
@@ -51,9 +49,7 @@ static int	ft_fill(char **line, char **str, char *ptr)
 		ret = 1;
 	*ptr = 0;
 	*line = ft_strjoin("", *str);
-	tmp = *str;
 	*str = ft_strjoin(ptr + 1, "");
-	ft_strdel(&tmp);
 	return (ret);
 }
 
