@@ -32,7 +32,8 @@ static int	ft_read_fd(char **str, int fd)
 	*str = ft_strjoin(*str, tmpBuff);
 	if (*ptr != 0)
 		free(ptr);
-	free (tmpBuff);
+	//free (tmpBuff);
+	ft_strdel(&tmpBuff);
 	return (ret);
 }
 
@@ -52,7 +53,7 @@ static int	ft_fill(char **line, char **str, char *ptr)
 	*line = ft_strjoin("", *str);
 	tmp = *str;
 	*str = ft_strjoin(ptr + 1, "");
-	free(tmp);
+	ft_strdel(&tmp);
 	return (ret);
 }
 
