@@ -35,8 +35,8 @@ static int	ft_fill(char **line, char **str, char *ptr)
 	if (*ptr == '\n')
 		ret = 1;
 	*ptr = 0;
-	*line = ft_strjoin("", *str);
-	*str = ft_strjoin(ptr + 1, "");
+	*line = ft_strdup(*str);
+	*str = ft_strdup(ptr + 1);
 	return (ret);
 }
 
@@ -56,7 +56,7 @@ int			get_next_line(int const fd, char **line)
 		ptr = str;
 		while (*ptr || size < BUFF_SIZE)
 		{
-			if (*ptr == '\n' || *ptr == -1 || *ptr == 0)
+			if (*ptr == '\n' || *ptr == -1 || *ptr == '\0')
 				return (ft_fill(line, &str, ptr));
 			ptr++;
 		}
