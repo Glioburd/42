@@ -15,15 +15,15 @@
 static int	ft_read_fd(char **str, int fd)
 {
 	int		ret;
-	char	*tmpBuff;
+	char	*tmpbuff;
 
-	tmpBuff = ft_strnew(BUFF_SIZE + 1);
-	ret = read(fd, tmpBuff, BUFF_SIZE);
+	tmpbuff = ft_strnew(BUFF_SIZE + 1);
+	ret = read(fd, tmpbuff, BUFF_SIZE);
 	if (ret == -1)
 		return (-1);
-	tmpBuff[ret] = 0;
-	*str = ft_strjoin(*str, tmpBuff);
-	ft_strdel(&tmpBuff);
+	tmpbuff[ret] = 0;
+	*str = ft_strjoin(*str, tmpbuff);
+	ft_strdel(&tmpbuff);
 	return (ret);
 }
 
