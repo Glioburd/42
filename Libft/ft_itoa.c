@@ -6,7 +6,7 @@
 /*   By: gsauvair <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 13:30:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2014/11/19 15:01:23 by gsauvair         ###   ########.fr       */
+/*   Updated: 2014/11/27 16:37:12 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char		*ft_itoa(int n)
 	int		j;
 
 	if (n == -2147483648)
-		return(ft_strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	buf = ft_strnew(count_digit(n));
 	j = count_digit(n) - 1;
 	if (buf)
