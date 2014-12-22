@@ -24,3 +24,24 @@ void	ft_error(const char *str)
 		perror(str);
 	exit (0);
 }
+
+/*static int		ft_is_arg_valid(char *)
+{
+	int	fd;
+
+	if ((fd = open(filename, O_RDONLY)) >= 0 && ft_strlen(filename) > 4)
+	{
+		if (!ft_strcmp(".fdf" || ".txt", ft_strsub(filename, ft_strlen(filename) - 4, 4)))
+		{
+			close(fd);
+			return (1);
+		}
+		else
+		{
+			close(fd);
+			return (0);
+		}
+	}
+	return (0);
+}
+*/

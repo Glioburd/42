@@ -12,47 +12,52 @@
 
 #include "fdf.h"
 
-void	*draw(void *mlx, void *win)
+void	draw(t_env *e, t_stock *lst)
 {
-	int		x;
-	int		y;
+	int dx;
+	int	dy;
+	int x_y;
 
-	y = 100;
-	while (y < 200)
+	while(lst->next)
 	{
-		x = 100;
-		while (x < 200)
-		{
-			mlx_pixel_put(mlx, win, x, y, 0xFF0000);
-			x++;
+		dx = (lst->next->x - lst->x);
+		dy = (lst->next->y - lst->y);
+		x_y = (int)(dy * (dx / (lst->next->x - lst->x)));
+		if (lst->nl != '\n')
+		{	
+			if (lst->z >= 1)
+			{
+				while (dx >= 0)
+				{
+					mlx_pixel_put(e->mlx, e->win, lst->x + dx, lst->y + x_y, 0x6666FF);
+					dx--;
+				}
+			}
+			else
+			{
+				while (dx >= 0)
+				{
+					mlx_pixel_put(e->mlx, e->win, lst->x + dx, lst->y + x_y, 0xFF0000);
+					dx--;
+				}
+			}
 		}
-		y++;
+		lst = lst->next;
 	}
-	return (0);
 }
 
 int		expose_hook(t_env *e)
 {
-	draw(e->mlx, e->win);
+	t_stock	*lst;
+
+	lst = open_f(e);
+	draw(e, lst);
 	return (0);
 }
 
 int		key_hook(int key_code)
 {
-	ft_putnbr(key_code);
-	ft_putchar('\n');
-	if (key_code == 53)
+	if (key_code == 65307)
 		exit(0);
 	return (0);
-}
-
-void	init(void)
-{
-	t_env	e;
-
-	e.mlx = mlx_init();
-	e.win = mlx_new_window(e.mlx, 420, 420, "fdf");
-	mlx_key_hook(e.win, key_hook, &e);
-	mlx_expose_hook(e.win, expose_hook, &e);
-	mlx_loop(e.mlx);
 }
