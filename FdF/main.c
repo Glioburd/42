@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/05 16:13:54 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/10 20:45:00 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/11 16:50:09 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ void	ft_pixel_start(t_env *e)
 	}
 }
 
-/*
-** Initialisation des fonctions MLX et des coordonnees de depart.
-*/
-
 void	mi(int **tab, int length, int width, char *argvcolor)
 {
 	t_env	e;
@@ -62,11 +58,6 @@ void	mi(int **tab, int length, int width, char *argvcolor)
 	mlx_loop(e.mlx);
 }
 
-/*
-** Check de la tabidite des args.
-** Ouverture de la map avec open_file
-*/
-
 int		ft_tabid_args(int argc, char **argv, char **str)
 {
 	int	fd;
@@ -84,11 +75,6 @@ int		ft_tabid_args(int argc, char **argv, char **str)
 	}
 	return (1);
 }
-
-/*
-** Check des args.
-** Creation d'un tableau de int a partir de la map avec ft_tab.
-*/
 
 int		main(int argc, char **argv)
 {

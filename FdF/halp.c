@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/04 20:12:02 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/10 20:33:44 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/11 16:50:22 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ void	ft_arg2_error(char *av)
 	ft_putendl("Exemple : ./fdf map.fdf ORANGE");
 	exit(0);
 }
-
-/*
-** Doesn't work with e->color = ft_atoi(argvcolor);
-** Need fixes.
-*/
 
 int		ft_arg_color(char *argvcolor, t_env *e)
 {

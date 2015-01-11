@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 15:52:42 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/10 20:15:00 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/11 16:50:17 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ int			ft_expose_hook(t_env *e)
 	ft_write_op(e);
 	return (0);
 }
-
-/*
-** Fleche du haut
-** Touche +
-*/
 
 int			ft_keyhook2(int key, t_env *e)
 {

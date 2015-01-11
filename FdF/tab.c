@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/13 18:06:25 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/10 20:48:37 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/11 18:28:58 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ int		ft_open(int fd, char **line)
 	return (0);
 }
 
-/*
-** Suppression des espaces ave split.
-** Conversion de la colonne en int avec atoi.
-*/
-
 int		*ft_atoi_width(char *str, int *width)
 {
 	char	**tab;
@@ -63,13 +58,6 @@ int		*ft_atoi_width(char *str, int *width)
 	}
 	return (line);
 }
-
-/*
-** Stock de la map dans un tableau de char avec split en supprimant les '\n'.
-** Conversion du tableau de char en tableau de int avec ft_atoi_width (atoi).
-** length = ligne
-** width = colonne
-*/
 
 int		**ft_tab(char **str, int *length, int *width)
 {
