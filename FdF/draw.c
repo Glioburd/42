@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 18:34:16 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/07 19:46:49 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/08 20:04:01 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	ft_draw_y(t_env *e, int i, int j)
 		x = (int)((y - p) / m + 0.5);
 		ft_pixel_put(e, x, y);
 		y++;
-	}	
+	}
 }
 
 /*
-** Dessine les lignes
+** Draw lines
 */
 
 void	ft_init_x(t_env *e)
@@ -105,7 +105,7 @@ void	ft_init_x(t_env *e)
 }
 
 /*
-** Dessine les colonnes
+** Draw columns
 */
 
 void	ft_init_y(t_env *e)

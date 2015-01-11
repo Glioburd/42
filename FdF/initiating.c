@@ -6,21 +6,24 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:38:36 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/07 18:18:27 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/10 20:19:37 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_init_c(int *x, int *y, int *map, int **tab, t_env *e)
+/*
+** Formule projection isometrique
+*/
+
+void	ft_init_c(int *x, int *y, int *map, int **tab)
 {
 	float	tmp;
 
-	e->high = 0.06;
 	tmp = 15. + (35. + map[2]) * (0.82 * map[0] + 0.60 * map[1]);
 	*x = (int)(tmp + 0.5);
 	tmp = 0.60 * (0.60 * map[0] - 0.82 * map[1]);
-	tmp -= e->high * tab[map[0]][map[1]];
+	tmp -= 0.05 * tab[map[0]][map[1]];
 	tmp *= (35. + map[2]);
 	tmp += 533.;
 	*y = (int)(tmp + 0.5);
@@ -48,13 +51,12 @@ void	ft_max_dim(int **tab, int length, int width)
 	}
 }
 
-int		***ft_init_coord(int **tab, int length, int width, t_env *e)
+int		***ft_ini_coord(int **tab, int length, int width, t_env *e)
 {
 	int		***coord;
 	int		map[3];
 
 	map[2] = e->zoom;
-
 	if (!(coord = (int***)malloc(sizeof(coord) * (length + 1))))
 		return (NULL);
 	map[0] = 0;
@@ -69,7 +71,7 @@ int		***ft_init_coord(int **tab, int length, int width, t_env *e)
 			if (!(coord[map[0]][map[1]] = malloc(sizeof(coord) * 2)))
 				return (NULL);
 			ft_init_c(&coord[map[0]][map[1]][0],
-					&coord[map[0]][map[1]][1], map, tab, e);
+				&coord[map[0]][map[1]][1], map, tab);
 			map[1]++;
 		}
 		map[0]++;

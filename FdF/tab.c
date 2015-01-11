@@ -6,19 +6,18 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/13 18:06:25 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/07 19:34:11 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/10 20:48:37 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-//#include <unistd.h>
 
 /*
 ** "Mini GNL"
 ** Ouverture du fichier .fdf
 */
 
-int				ft_open(int fd, char **line)
+int		ft_open(int fd, char **line)
 {
 	ssize_t		ret;
 	char		*buff;
@@ -52,17 +51,14 @@ int		*ft_atoi_width(char *str, int *width)
 	*width = 0;
 	tab = ft_strsplit(str, ' ');
 	while (tab[*width])
-		//*width++;
 		*width += 1;
-	line = malloc(sizeof(*line) * (*width +1));
+	line = malloc(sizeof(*line) * (*width + 1));
 	if (!line)
-		return NULL;
-	//*width = 0;
+		return (NULL);
 	*width = 0;
 	while (tab[*width])
 	{
 		line[*width] = ft_atoi(tab[*width]);
-		//*width++;
 		*width += 1;
 	}
 	return (line);
@@ -72,31 +68,27 @@ int		*ft_atoi_width(char *str, int *width)
 ** Stock de la map dans un tableau de char avec split en supprimant les '\n'.
 ** Conversion du tableau de char en tableau de int avec ft_atoi_width (atoi).
 ** length = ligne
-** width = colonne  
+** width = colonne
 */
 
 int		**ft_tab(char **str, int *length, int *width)
 {
-	int 	**inttab;
+	int		**inttab;
 	char	**chartab;
 
 	if ((chartab = ft_strsplit(*str, '\n')) == NULL)
-		return NULL;
+		return (NULL);
 	ft_strdel(str);
 	*length = 0;
 	while (chartab[*length])
-		//*length++;
 		*length += 1;
 	if ((inttab = malloc(sizeof(*inttab) * (*length + 1))) == NULL)
-		return NULL;
+		return (NULL);
 	*length = 0;
 	while (chartab[*length])
 	{
-		//ft_putendl(*chartab);
 		if ((inttab[*length] = ft_atoi_width(chartab[*length], width)) == NULL)
-			return NULL;
-		//*length++;
-		//ft_putnbr(*inttab[*length]);
+			return (NULL);
 		*length += 1;
 	}
 	return (inttab);
