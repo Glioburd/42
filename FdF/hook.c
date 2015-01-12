@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 15:52:42 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/11 16:50:17 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/12 19:43:15 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ int			ft_keyhook2(int key, t_env *e)
 int			ft_keyhook3(int key, t_env *e)
 {
 	if (key == 65307)
+	{
+		mlx_destroy_window(e->mlx, e->win);
 		exit(0);
+	}
 	if (key == 65363)
 		e->move_x += 15;
 	if (key == 65361)

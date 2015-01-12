@@ -6,24 +6,11 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:38:36 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/11 17:20:56 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/12 18:38:27 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	ft_init_c(int *x, int *y, int *map, int **tab)
-{
-	float	calc;
-
-	calc = 15. + (35. + map[2]) * (0.82 * map[0] + 0.60 * map[1]);
-	*x = (int)(calc + 0.5);
-	calc = 0.60 * (0.60 * map[0] - 0.82 * map[1]);
-	calc -= 0.05 * tab[map[0]][map[1]];
-	calc *= (35. + map[2]);
-	calc += 533.;
-	*y = (int)(calc + 0.5);
-}
 
 void	ft_max_dim(int **tab, int length, int width)
 {
@@ -47,6 +34,19 @@ void	ft_max_dim(int **tab, int length, int width)
 	}
 }
 
+void	ft_init_c(int *x, int *y, int *map, int **tab)
+{
+	float	calc;
+
+	calc = 15. + (35. + map[2]) * (0.82 * map[0] + 0.60 * map[1]);
+	*x = (int)(calc + 0.5);
+	calc = 0.60 * (0.60 * map[0] - 0.82 * map[1]);
+	calc -= 0.05 * tab[map[0]][map[1]];
+	calc *= (35. + map[2]);
+	calc += 533.;
+	*y = (int)(calc + 0.5);
+}
+
 int		***ft_ini_coord(int **tab, int length, int width, t_env *e)
 {
 	int		***coord;
@@ -56,7 +56,7 @@ int		***ft_ini_coord(int **tab, int length, int width, t_env *e)
 	if (!(coord = (int***)malloc(sizeof(coord) * (length + 1))))
 		return (NULL);
 	map[0] = 0;
-	ft_max_dim(tab, length, width);
+	//ft_max_dim(tab, length, width);
 	while (map[0] < length)
 	{
 		if (!(coord[map[0]] = malloc(sizeof(*coord) * (width + 1))))
