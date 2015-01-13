@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 17:30:46 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/02 22:06:38 by gsauvair         ###   ########.fr       */
+/*   Created: 2015/01/02 20:56:07 by gsauvair          #+#    #+#             */
+/*   Updated: 2015/01/02 21:56:39 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t			i;
-	unsigned char	*ps;
+	t_list	*new;
+	t_list	*prev;
+	t_list	*origin;
 
-	ps = (unsigned char *)s;
-	i = 0;
-	if (s)
+	if (!lst || !f)
+		return (NULL);
+	new = (*f)(lst);
+	prev = new;
+	origin = new;
+	lst = lst->next;
+	while (lst)
 	{
-		while (i < n)
-		{
-			if (ps[i] != (unsigned char)c)
-			{
-				i++;
-			}
-			else
-			{
-				return ((void *)&ps[i]);
-			}
-		}
+		new = f(lst);
+		if (new == NULL)
+			return (NULL);
+		prev->next = new;
+		prev = new;
+		lst = lst->next;
 	}
-	return (NULL);
+	new->next = NULL;
+	return (origin);
 }
