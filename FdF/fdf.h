@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/05 16:12:40 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/10 20:42:34 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/01/13 18:22:50 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int					**ft_tab(char **str, int *length, int *width);
 void				mi(int **tab, int length, int width, char *color);
 int					ft_valid_args(int argc, char **argv, char **str);
 void				ft_init_c(int *x, int *y, int *map, int **tab);
-void				ft_max_dim(int **tab, int length, int width);
 int					***ft_ini_coord(int **tab, int length, int width, t_env *e);
 int					ft_pixel_put(t_env *e, int x, int y);
 void				ft_pixel_start(t_env *e);
