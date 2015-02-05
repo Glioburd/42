@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 19:17:29 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/26 18:42:15 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/05 18:21:14 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_tab			g_tab[10] =
 {
-	{"c", ft_print_car},
+	{"c", ft_print_char},
 	{"s", ft_print_str},
 	{"d", ft_print_number},
 	{"i", ft_print_number},
@@ -61,5 +61,5 @@ int		ft_display(va_list ap, char **str)
 	t_opt	opt;
 	opt = get_opt(str, ap);
 	flag = ft_flag(opt, str, ap);
-	return(flag);
+	return (flag);
 }

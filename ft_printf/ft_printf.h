@@ -6,14 +6,14 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/14 17:37:52 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/02/02 18:13:23 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/05 18:21:15 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#define OPTIONS "# +-0*vhlLn"
+#define OPTION "# +-0*vhlLn"
 #define ON 1
 #define OFF 2
 #include <stdlib.h>
@@ -71,5 +71,6 @@ void	continue_uitoa(unsigned int n, char *str, unsigned int b, char *base);
 char	*uitoa(char *base, unsigned int n);
 void	cont_ult(unsigned long int n, char *s, unsigned long b, char *d);
 char	*ultoa(char *base, unsigned long n);
+char	*ft_print_char(t_opt opt, va_list ap);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/31 17:55:05 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/02/02 15:22:11 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/04 17:19:19 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_prlong intf.h"
+#include "ft_printf.h"
 
 void	continue_litoa(long int n, char *str, long int b, char *base)
 {

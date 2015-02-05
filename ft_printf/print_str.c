@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 14:46:51 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/26 17:15:00 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/05 17:13:07 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ char	*fill(char c, int len)
 		exit(-1);
 	while (i < len)
 	{
-		str[i] = c
+		str[i] = c;
 		i++;
 	}
-	str[i] = '\0'
+	str[i] = '\0';
 	return(str);
 }
 
@@ -56,7 +56,7 @@ char	*continue_print(char *str, t_opt opt)
 		if (opt.get['-'] == ON)
 			str = ft_strjoin(str, fill(' ', opt.width - (int)ft_strlen(str)));
 		else
-			str = ft_strjoin(fill(c, opt.width - (int)ft_strlen(str)), str)
+			str = ft_strjoin(fill(c, opt.width - (int)ft_strlen(str)), str);
 		if (str == NULL)
 			exit(-1);
 	}
@@ -67,7 +67,7 @@ char	*ft_print_str(t_opt opt, va_list ap, int check)
 {
 	char	*str;
 
-	check = ft_check_ap(ap)
+	check = ft_check_ap(ap);
 	if (check == 0)
 		return (NULL);
 	if (opt.get['l'] == ON)
@@ -86,5 +86,5 @@ char	*ft_print_str(t_opt opt, va_list ap, int check)
 	}
 	else
 		str = check == OFF ? ft_strdup("(null)") : ft_strdup(va_arg(ap, char *));
-	return (continue_print);
+	return (continue_print(str, opt));
 }

@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/25 15:48:37 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/26 14:42:17 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/05 16:31:39 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		get_info(char **str, va_list ap)
 	int		val;
 
 	val = 0;
-	(*str++);
+	(*str)++;
 	if (ft_isdigit(**str))
 	{
 		val = ft_atoi(*str);
@@ -42,8 +42,8 @@ int		get_info(char **str, va_list ap)
 		(*str)--;
 	}
 	else if (**str == '*')
-		val = va_ap(ap,int);
-	if (val = < 0)
+		val = va_arg(ap, int);
+	if (val < 0)
 		val *= -1;
 	return (val);
 }
@@ -63,10 +63,10 @@ void	ft_check_option(char *get, char **str, t_opt *opt, va_list ap)
 {
 	int	i;
 
-	if (ft_isdigit(**str) && **str != '0' || **str == '*')
+	if (ft_isdigit(**str) && (**str != '0' || **str == '*'))
 	{
 		if (**str == '*')
-			opt->width = va_ap(ap, int);
+			opt->width = va_arg(ap, int);
 		else
 		{
 			opt->width = ft_atoi(*str);

@@ -6,7 +6,7 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:34:06 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/02/02 18:25:40 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/05 16:41:51 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,17 @@ char	*print_details(char *str, t_opt opt)
 char	*final_print(char *str, t_opt opt)
 {
 	char	c;
-	char	*fill;
 
 	if (opt.width > 1 && opt.width > (int)ft_strlen(str))
 	{
 		c = (opt.get['0'] == ON ? '0' : ' ');
 		if (opt.get['-'] == ON)
 		{
-			fill = fill(' ', opt.width - (int)ft_strlen(str));
-			str == ft_strjoin(str, fill);
+			str = ft_strjoin(str, fill(' ', opt.width - (int)ft_strlen(str)));
 		}
 		else
 		{
-			fill = fill(f, opt.width - (int)ft_strlen(str));
-			str = ft_strjoin(fill, str);
+			str = ft_strjoin(fill(c, opt.width - (int)ft_strlen(str)), str);
 		}
 	}
 	return (str);
@@ -54,7 +51,7 @@ char	*nextprint(char *str, t_opt opt)
 		str = print_details(str, opt);
 	if (opt.get['+'] == ON && *str != '-')
 		str = ft_strjoin("+", str);
-	else if (opt.width == 0, && opt.get[' '] == ON && *str != '-')
+	else if (opt.width == 0 && opt.get[' '] == ON && *str != '-')
 		str = ft_strjoin(" ", str);
 	return (final_print(str, opt));
 }

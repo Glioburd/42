@@ -6,11 +6,11 @@
 /*   By: gsauvair <gsauvair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/31 18:06:17 by gsauvair          #+#    #+#             */
-/*   Updated: 2015/01/31 18:21:37 by gsauvair         ###   ########.fr       */
+/*   Updated: 2015/02/05 16:42:21 by gsauvair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-"ft_printf.h"
+#include "ft_printf.h"
 
 void	cont_ult(unsigned long int n, char *s, unsigned long b, char *d)
 {
